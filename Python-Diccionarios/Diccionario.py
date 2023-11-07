@@ -2,27 +2,27 @@
 equipos = {}
 
 # Función para agregar un equipo de cómputo con su ID, cargador y mouse
-def agregar_equipo(id_equipo, cargador, mouse):
+def agregarEquipo(idEquipo, cargador, mouse):
     # Verificar si el equipo ya existe en el diccionario
-    if id_equipo in equipos:
-        print("El equipo con ID {} ya existe.".format(id_equipo))
+    if idEquipo in equipos:
+        print("El equipo con ID {} ya existe.".format(idEquipo))
     else:
-        equipos[id_equipo] = {'cargador': cargador, 'mouse': mouse, 'novedades': []}
-        print("Equipo con ID {} agregado exitosamente.".format(id_equipo))
+        equipos[idEquipo] = {'cargador': cargador, 'mouse': mouse, 'novedades': []}
+        print("Equipo con ID {} agregado exitosamente.".format(idEquipo))
 
 # Función para agregar una novedad a un equipo
-def agregar_novedad(id_equipo, fecha, descripcion):
-    if id_equipo in equipos:
-        equipos[id_equipo]['novedades'].append({'fecha': fecha, 'descripcion': descripcion})
-        print("Novedad agregada al equipo con ID {}.".format(id_equipo))
+def agregarNovedad(idEquipo, fecha, descripcion):
+    if idEquipo in equipos:
+        equipos[idEquipo]['novedades'].append({'fecha': fecha, 'descripcion': descripcion})
+        print("Novedad agregada al equipo con ID {}.".format(idEquipo))
     else:
-        print("El equipo con ID {} no existe.".format(id_equipo))
+        print("El equipo con ID {} no existe.".format(idEquipo))
 
 # Función para buscar un equipo por su ID y mostrar su información
-def buscar_equipo(id_equipo):
-    if id_equipo in equipos:
-        equipo = equipos[id_equipo]
-        print("ID del equipo: {}".format(id_equipo))
+def buscarEquipo(idEquipo):
+    if idEquipo in equipos:
+        equipo = equipos[idEquipo]
+        print("ID del equipo: {}".format(idEquipo))
         print("Cargador: {}".format(equipo['cargador']))
         print("Mouse: {}".format(equipo['mouse']))
         print("Novedades:")
@@ -32,7 +32,7 @@ def buscar_equipo(id_equipo):
         print("El equipo con ID {} no existe.")
 
 # Función para mostrar un menú interactivo
-def mostrar_menu():
+def mostrarMenu():
     while True:
         print("\nMenú:")
         print("1. Agregar equipo")
@@ -43,22 +43,22 @@ def mostrar_menu():
         opcion = input("Selecciona una opción (1/2/3/4): ")
 
         if opcion == '1':
-            id_equipo = input("Ingrese el ID del equipo: ")
+            idEquipo = input("Ingrese el ID del equipo: ")
             cargador = input("Ingrese el cargador: ")
             mouse = input("Ingrese el mouse: ")
-            agregar_equipo(id_equipo, cargador, mouse)
+            agregarEquipo(idEquipo, cargador, mouse)
         elif opcion == '2':
-            id_equipo = input("Ingrese el ID del equipo al que desea agregar una novedad: ")
+            idEquipo = input("Ingrese el ID del equipo al que desea agregar una novedad: ")
             fecha = input("Ingrese la fecha de la novedad: ")
             descripcion = input("Ingrese la descripción de la novedad: ")
-            agregar_novedad(id_equipo, fecha, descripcion)
+            agregarNovedad(idEquipo, fecha, descripcion)
         elif opcion == '3':
-            id_equipo = input("Ingrese el ID del equipo que desea buscar: ")
-            buscar_equipo(id_equipo)
+            idEquipo = input("Ingrese el ID del equipo que desea buscar: ")
+            buscarEquipo(idEquipo)
         elif opcion == '4':
             break
         else:
             print("Opción no válida. Por favor, seleccione una opción válida.")
 
-if _name_ == "_main_":
-    mostrar_menu()
+if __name__ == "__main__":
+    mostrarMenu()
