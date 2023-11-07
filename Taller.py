@@ -3,8 +3,8 @@ aprendices = []
 edades = []
 
 # Llenar las listas solicitando datos por teclado
-num_aprendices = int(input("Cuántos aprendices deseas ingresar: "))
-for i in range(num_aprendices):
+numeroAprendices = int(input("Cuántos aprendices deseas ingresar: "))
+for i in range(numeroAprendices):
     nombre = input(f"Ingrese el nombre del aprendiz {i + 1}: ")
     edad = int(input(f"Ingrese la edad de {nombre}: "))
     aprendices.append(nombre)
@@ -15,31 +15,36 @@ print("Lista de Aprendices:", aprendices)
 print("Lista de Edades:", edades)
 
 # Encontrar el aprendiz con la mayor edad
-indice_mayor_edad = edades.index(max(edades))
-print(f"El aprendiz con la mayor edad es {aprendices[indice_mayor_edad]} con {max(edades)} años.")
+indimayorEdad = edades.index(max(edades))
+print(f"El aprendiz con la mayor edad es {aprendices[indimayorEdad]} con {max(edades)} años.")
 
 # Insertar el nombre de la instructora en la posición 1
-nombre_instructora = input("Ingrese el nombre de la instructora: ")
-aprendices.insert(1, nombre_instructora)
+nombreInstructora = input("Ingrese el nombre de la instructora: ")
+aprendices.insert(1, nombreInstructora)
 
 # Contar cuántos aprendices tienen 18 años
-conteo_18_anios = edades.count(18)
-print(f"Hay {conteo_18_anios} aprendices con 18 años.")
+conteoEdad = edades.count(18)
+print(f"Hay {conteoEdad} aprendices con 18 años.")
 
 # Agregar un aprendiz "x" al final de la lista
-nuevo_aprendiz = "AprendizX"
-aprendices.append(nuevo_aprendiz)
+aprendices.append("Leonardo")
 
 # Borrar el nombre de la instructora de la lista
-if nombre_instructora in aprendices:
-    aprendices.remove(nombre_instructora)
+if nombreInstructora in aprendices:
+    aprendices.remove(nombreInstructora)
 
 # Indicar un dato a buscar en la lista de aprendices
-dato_a_buscar = input("Ingrese un dato a buscar en la lista de aprendices: ")
-if dato_a_buscar in aprendices:
-    print(f"{dato_a_buscar} se encuentra en la lista de aprendices.")
+datoBuscar = input("Ingrese un dato a buscar en la lista de aprendices: ")
+if datoBuscar in aprendices:
+    print(f"{datoBuscar} se encuentra en la lista de aprendices.")
 else:
-    print(f"{dato_a_buscar} no se encuentra en la lista de aprendices.")
+    respuesta=input(f"{datoBuscar} no se encuentra en la lista de aprendices. ¿Deseas agregarlo? (Si/No):")
+    if respuesta=="Si":
+        aprendices.append(datoBuscar)
+        print(f"Se ha agregado {datoBuscar} a la lista de aprendices.")
+    else:
+     print(f"{datoBuscar} no se agrego a la lista de aprendices.")
+
 
 # Mostrar los primeros 10 aprendices de la lista
 print("Los primeros 10 aprendices son:", aprendices[:10])
